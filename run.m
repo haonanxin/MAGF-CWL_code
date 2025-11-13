@@ -32,7 +32,7 @@ alpha=0.1;
 
 %% Optimization of MAGF-CWL
 [F,num_view] = Initialize_F_FINCH(X,c);
-[B] = AGC_FINCH(X,L,alpha);
+[B] = MAGC_FINCH(X,L,alpha);
 [learned_F,loss] = main_MAGF_CWL(X,L-1,B,c,F);
 
 [~, ind] = max(learned_F, [], 2);
@@ -41,4 +41,5 @@ out = ClusteringMeasure_new(Y, ind);
 
 disp(['********************************************']);
 disp(['Running MAGF-CWL on ',dataset_name,' to obtain ACC: ', num2str(out.ACC)]);
+
 disp(['********************************************']);
